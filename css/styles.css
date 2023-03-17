@@ -16,9 +16,7 @@ body {
 
 .spaceman {
     background-color: rebeccapurple;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    display: flex;
 }
 
 .answer {
@@ -68,16 +66,20 @@ body {
 
 .answer-keys {
     background-color: blue;
-    margin-top: 5vh;
+    margin: 1.5vh;
+    margin-top: 4vh;
     height: 25vh;
-    /* height: auto; */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    /* height: 80%; */
+    height: auto;
+    max-height: 80%;
 }
 
 .head {
     background-color: black;
-    grid-column: span 5;
+    aspect-ratio: 1/1;
     width: 20%;
-    height: 100%;
 }
 .LArm {
     background-color: aqua;
@@ -94,7 +96,7 @@ body {
 .RArm {
     background-color: red;
     grid-column: span 2;
-    width: 100%;
+    width: 50%;
     height: 100%;
 }
 .LLeg {
