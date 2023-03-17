@@ -16,10 +16,16 @@ body {
 
 .spaceman {
     background-color: rebeccapurple;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
 }
 
 .answer {
     background-color: yellow;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 }
 
 .keyboard {
@@ -32,13 +38,74 @@ body {
 
 .row1 {
     background-color: green;
-    display: grid;
-    flex-direction: row;
-    
+    display: flex;
+    justify-content: center;
+    margin: 1.5vh;
 }
 .row2 {
     background-color: blue;
+    display: flex;
+    justify-content: center;
+    margin: 1.5vh;
 }
 .row3 {
     background-color: red;
+    display: flex;
+    justify-content: center;
+    margin: 1.5vh;
+}
+
+.hint {
+    background-color: green;
+    margin-top: 2vh;
+    font-size: 6vh;
+}
+
+.category {
+    background-color: red;
+    font-size: 3.5vh;
+}
+
+.answer-keys {
+    background-color: blue;
+    margin-top: 5vh;
+    height: 25vh;
+    /* height: auto; */
+}
+
+.head {
+    background-color: black;
+    grid-column: span 5;
+    width: 20%;
+    height: 100%;
+}
+.LArm {
+    background-color: aqua;
+    grid-column: span 2;
+    width: 50%;
+    height: 100%;
+}
+.torso {
+    background-color: yellow;
+    width: 100%;
+    height: 100%;
+    
+}
+.RArm {
+    background-color: red;
+    grid-column: span 2;
+    width: 100%;
+    height: 100%;
+}
+.LLeg {
+    background-color: tomato;
+    grid-column: span 2;
+    width: 100%;
+    height: 100%;
+}
+.RLeg {
+    background-color: tomato;
+    grid-column: span 2;
+    width: 100%;
+    height: 100%;
 }
