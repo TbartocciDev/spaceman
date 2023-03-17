@@ -1,3 +1,31 @@
+// answer string and array
+// const answerString = 'Warm toasted bagel with lox and cream'
+const answerString = 'wwrr ty iioo'
+const separatedAnswer = answerString.split('')
+const answerArr = []
+
+let answerReduced = []
+let wrongGuesses = []
+let correctGuesses = []
+
+separatedAnswer.forEach((letter)=> {
+    answerArr.push(letter.toUpperCase())
+})
+console.log(answerArr)
+answerReduced = answerArr.reduce((acc, letter)=>{
+    if (acc.includes(letter)) {
+        console.log('exists')
+    } else {
+        if (letter === ' ') {
+            // do nothing
+        } else {
+            acc.push(letter)
+        }
+    }
+    return acc
+}, [])
+
+console.log(answerReduced)
 // main divs
 const spaceManDiv = document.querySelector('.spaceman')
 const answerDiv = document.querySelector('.answer')
@@ -32,6 +60,25 @@ row1Letters.forEach((letter) => {
     letterEl.style.width = letterWidth
     letterEl.style.fontSize = letterFontSize
 
+    // add function
+    letterEl.addEventListener('click', function(event){
+        const guessedLetter = event.target.innerHTML
+
+        if (answerArr.includes(guessedLetter)) {
+            event.target.style.backgroundColor = 'green'
+            if (correctGuesses.includes(guessedLetter)) {
+                // do nothing
+            } else {
+                correctGuesses.push(guessedLetter)
+            }
+            checkLetter(guessedLetter, true)
+        } else {
+            event.target.style.backgroundColor = 'red'
+            wrongGuesses.push(guessedLetter)
+            checkLetter(guessedLetter, false)
+        }
+    })
+
     row1Div.appendChild(letterEl)
 })
 
@@ -64,11 +111,6 @@ const hintDiv = document.querySelector('.hint')
 const categoryDiv = document.querySelector('.category')
 const answerKeysDiv = document.querySelector('.answer-keys')
 
-// answer string and array
-// const answerString = 'Warm toasted bagel with lox and cream'
-const answerString = 'New York Giants'
-const separatedAnswer = answerString.split('')
-
 // height and width of keys 
 const answerHeight = answerDiv.offsetHeight
 const keyHeight = ((answerHeight / 4) / 10) + 'vh'
@@ -81,13 +123,58 @@ separatedAnswer.forEach((letter) => {
     let letterEl = document.createElement('div')
     letterEl.style.border = 'solid'
     letterEl.style.textAlign = 'center'
-    letterEl.innerHTML = letter.toUpperCase()
+    letterEl.setAttribute('value',letter.toUpperCase())
     letterEl.style.height = keyHeight
     letterEl.style.fontSize = '8vh'
 
     if (letter === ' ') {
         letterEl.style.backgroundColor = 'green'
     }
-
     answerKeysDiv.appendChild(letterEl)
+    letterIndex += 1
 })
+
+// spaceman elements
+const headDiv = document.querySelector('.head') 
+const leftArmDiv = document.querySelector('.LArm')
+const torsoDiv = document.querySelector('torso')
+const rightArmDiv = document.querySelector('RArm')
+const leftLegDiv = document.querySelector('LLeg')
+const rightLegDiv = document.querySelector('RLeg')
+
+// position spaceman
+
+// functions
+
+function letterClicked() {
+    console.log('clicked')
+}
+
+function checkLetter(someLetter, someBool) {
+
+    if (someBool) {
+        const answerKeys = answerDiv.querySelectorAll('div')
+    
+        answerKeys.forEach((answerKey)=> {
+
+        const answerKeyVal = answerKey.getAttribute('value')
+
+        if (answerKeyVal === someLetter) {
+            answerKey.innerHTML = someLetter
+        }
+    })
+    } 
+
+    // check for win or lose 
+    if (wrongGuesses.length === 5) {
+        console.log('loser')
+    } else {
+        function isWinner(letter) {
+            return correctGuesses.includes(letter)
+        }
+        if (answerReduced.every(isWinner)) {
+            console.log('winner')
+        }
+    }
+
+}
