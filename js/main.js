@@ -1,6 +1,6 @@
 // answer string and array
 // const answerString = 'Warm toasted bagel with lox and cream'
-const answerString = 'wwrr ty iioo'
+const answerString = 'ednm ilas'
 const separatedAnswer = answerString.split('')
 const answerArr = []
 
@@ -54,35 +54,15 @@ const letterBackgroundColor = 'gray'
 // top row
 row1Letters.forEach((letter) => {
     let letterEl = document.createElement('div')
-    letterEl.setAttribute('class', 'key')
     letterEl.style.border = 'solid'
     letterEl.style.textAlign = 'center'
-    letterEl.innerHTML = letter.toUpperCase()
     letterEl.style.flex = '1'
+    letterEl.innerHTML = letter.toUpperCase()
     letterEl.style.fontSize = letterFontSize
     letterEl.style.backgroundColor = letterBackgroundColor
 
-    // add function
-    letterEl.addEventListener('click', function(event){
-        const guessedLetter = event.target.innerHTML
-
-        if (answerArr.includes(guessedLetter)) {
-            event.target.style.backgroundColor = 'green'
-            if (correctGuesses.includes(guessedLetter)) {
-                // do nothing
-            } else {
-                correctGuesses.push(guessedLetter)
-            }
-            checkLetter(guessedLetter, true)
-        } else {
-            event.target.style.backgroundColor = 'red'
-            wrongGuesses.push(guessedLetter)
-            checkLetter(guessedLetter, false)
-        }
-    })
-
+    letterClicked(letterEl)
     row1Div.appendChild(letterEl)
-
 })
 
 // second row
@@ -95,6 +75,7 @@ row2Letters.forEach((letter) => {
     letterEl.style.fontSize = letterFontSize
     letterEl.style.backgroundColor = letterBackgroundColor
 
+    letterClicked(letterEl)
     row2Div.appendChild(letterEl)
 })
 
@@ -108,6 +89,7 @@ row3Letters.forEach((letter) => {
     letterEl.style.fontSize = letterFontSize
     letterEl.style.backgroundColor = letterBackgroundColor
 
+    letterClicked(letterEl)
     row3Div.appendChild(letterEl)
 })
 
@@ -167,7 +149,7 @@ function checkLetter(someLetter, someBool) {
     } 
 
     // check for win or lose 
-    if (wrongGuesses.length === 5) {
+    if (wrongGuesses.length >= 5) {
         console.log('loser')
     } else {
         function isWinner(letter) {
@@ -178,4 +160,26 @@ function checkLetter(someLetter, someBool) {
         }
     }
 
+}
+
+function letterClicked(keyEl) {
+    keyEl.addEventListener('click', function(event){
+        const guessedLetter = event.target.innerHTML
+
+        if (answerArr.includes(guessedLetter)) {
+            keyEl.style.backgroundColor = 'green'
+            if (correctGuesses.includes(guessedLetter)) {
+                // do nothing, duplicate
+            } else if (wrongGuesses.includes(guessedLetter)){
+                // do nothing, duplicate 
+            } else {
+                correctGuesses.push(guessedLetter)
+            }
+            checkLetter(guessedLetter, true)
+        } else {
+            keyEl.style.backgroundColor = 'red'
+            wrongGuesses.push(guessedLetter)
+            checkLetter(guessedLetter, false)
+        }
+    })
 }
