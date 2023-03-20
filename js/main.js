@@ -146,8 +146,9 @@ function checkLetter(someLetter, someBool) {
     })
     } 
 
+    const spacemanEls = document.querySelectorAll('#spaceman')
     // check for win or lose 
-    if (wrongGuesses.length >= 5) {
+    if (wrongGuesses.length >= spacemanEls.length) {
         console.log('loser')
     } else {
         function isWinner(letter) {
@@ -159,20 +160,9 @@ function checkLetter(someLetter, someBool) {
     }
 
     // show spaceman
-    if (wrongGuesses.length === 1) {
-        headDiv.style.opacity = 1
-    } else if (wrongGuesses.length === 2) {
-        torsoDiv.style.opacity = 1
-    } else if (wrongGuesses.length === 3) {
-        leftArmDiv.style.opacity = 1
-    } else if (wrongGuesses.length === 4) {
-        rightArmDiv.style.opacity = 1
-    } else if (wrongGuesses.length === 5) {
-        leftLegDiv.style.opacity = 1
-    } else if (wrongGuesses.length === 6) {
-        rightLegDiv.style.opacity = 1
+    for(let i = 0;i<wrongGuesses.length; i++) {
+        spacemanEls[i].style.opacity = 1
     }
-    console.log(wrongGuesses.length)
 }
 
 function letterClicked(keyEl) {
