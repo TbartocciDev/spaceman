@@ -49,12 +49,14 @@ const keyboardWdith = row1Div.offsetWidth
 // single spot for letter styles
 const letterFontSize = '5.5vh'
 const letterBackgroundColor = 'gray'
+const keyMargins = '0 0.5vw 0 0.5vw'
 
 // adding letters for keyboards
 // top row
 row1Letters.forEach((letter) => {
     let letterEl = document.createElement('div')
     letterEl.style.border = 'solid'
+    letterEl.style.margin = keyMargins
     letterEl.style.textAlign = 'center'
     letterEl.style.flex = '1'
     letterEl.innerHTML = letter.toUpperCase()
@@ -69,6 +71,7 @@ row1Letters.forEach((letter) => {
 row2Letters.forEach((letter) => {
     let letterEl = document.createElement('div')
     letterEl.style.border = 'solid'
+    letterEl.style.margin = keyMargins
     letterEl.style.textAlign = 'center'
     letterEl.style.flex = '1'
     letterEl.innerHTML = letter.toUpperCase()
@@ -83,6 +86,7 @@ row2Letters.forEach((letter) => {
 row3Letters.forEach((letter) => {
     let letterEl = document.createElement('div')
     letterEl.style.border = 'solid'
+    letterEl.style.margin = keyMargins
     letterEl.style.textAlign = 'center'
     letterEl.innerHTML = letter.toUpperCase()
     letterEl.style.flex = '1'
@@ -109,13 +113,16 @@ let letterIndex = 0
 separatedAnswer.forEach((letter) => {
     let letterEl = document.createElement('div')
     letterEl.style.border = 'solid'
+    letterEl.style.borderColor = 'white'
+    letterEl.style.color = 'white'
     letterEl.style.textAlign = 'center'
     letterEl.setAttribute('value',letter.toUpperCase())
     letterEl.style.height = keyHeight
     letterEl.style.fontSize = '5vh'
 
     if (letter === ' ') {
-        letterEl.style.backgroundColor = 'black'
+        // letterEl.style.backgroundColor = 'black'
+        letterEl.style.border = 'none'
     }
     answerKeysDiv.appendChild(letterEl)
     letterIndex += 1

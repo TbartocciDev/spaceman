@@ -8,7 +8,7 @@ body {
     height: 100%;
     width: 100%;
     margin: 0;
-    background-color: #dbee87;
+    background-color: black;
     display: grid;
     flex-direction: column;
     grid-template-columns: 1fr 1fr;
@@ -16,13 +16,11 @@ body {
 }
 
 .spaceman {
-    /* background-color: rebeccapurple; */
     margin: 3vh 0 0 2vw;
     position: relative;
 }
 
 .answer {
-    /* background-color: yellow; */
     margin: 3vh 2vw 0 0;
     display: flex;
     flex-direction: column;
@@ -71,17 +69,17 @@ body {
 }
 
 .hint {
-    /* background-color: green; */
     font-size: 6vh;
+    text-decoration-line: underline;
+    color: white;
 }
 
 .category {
-    /* background-color: red; */
     font-size: 3.5vh;
+    color: white;
 }
 
 .answer-keys {
-    /* background-color: blue; */
     margin-top: 4vh;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -90,7 +88,7 @@ body {
 }
 
 .head {
-    background-color: black;
+    background-color: rgb(144, 33, 127);
     opacity: 0;
     position: absolute;
     height: 20vh;
