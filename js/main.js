@@ -115,7 +115,7 @@ separatedAnswer.forEach((letter) => {
     letterEl.style.fontSize = '5vh'
 
     if (letter === ' ') {
-        letterEl.style.backgroundColor = 'green'
+        letterEl.style.backgroundColor = 'black'
     }
     answerKeysDiv.appendChild(letterEl)
     letterIndex += 1
@@ -124,12 +124,10 @@ separatedAnswer.forEach((letter) => {
 // spaceman elements
 const headDiv = document.querySelector('.head') 
 const leftArmDiv = document.querySelector('.LArm')
-const torsoDiv = document.querySelector('torso')
-const rightArmDiv = document.querySelector('RArm')
-const leftLegDiv = document.querySelector('LLeg')
-const rightLegDiv = document.querySelector('RLeg')
-
-// position spaceman
+const torsoDiv = document.querySelector('.torso')
+const rightArmDiv = document.querySelector('.RArm')
+const leftLegDiv = document.querySelector('.LLeg')
+const rightLegDiv = document.querySelector('.RLeg')
 
 // functions
 
@@ -160,6 +158,21 @@ function checkLetter(someLetter, someBool) {
         }
     }
 
+    // show spaceman
+    if (wrongGuesses.length === 1) {
+        headDiv.style.opacity = 1
+    } else if (wrongGuesses.length === 2) {
+        torsoDiv.style.opacity = 1
+    } else if (wrongGuesses.length === 3) {
+        leftArmDiv.style.opacity = 1
+    } else if (wrongGuesses.length === 4) {
+        rightArmDiv.style.opacity = 1
+    } else if (wrongGuesses.length === 5) {
+        leftLegDiv.style.opacity = 1
+    } else if (wrongGuesses.length === 6) {
+        rightLegDiv.style.opacity = 1
+    }
+    console.log(wrongGuesses.length)
 }
 
 function letterClicked(keyEl) {
