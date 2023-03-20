@@ -11,10 +11,10 @@ let correctGuesses = []
 separatedAnswer.forEach((letter)=> {
     answerArr.push(letter.toUpperCase())
 })
-console.log(answerArr)
+// console.log(answerArr)
 answerReduced = answerArr.reduce((acc, letter)=>{
     if (acc.includes(letter)) {
-        console.log('exists')
+        // console.log('exists')
     } else {
         if (letter === ' ') {
             // do nothing
@@ -25,7 +25,7 @@ answerReduced = answerArr.reduce((acc, letter)=>{
     return acc
 }, [])
 
-console.log(answerReduced)
+// console.log(answerReduced)
 // main divs
 const spaceManDiv = document.querySelector('.spaceman')
 const answerDiv = document.querySelector('.answer')
@@ -45,20 +45,22 @@ const row3Letters = ['z','x','c','v','b','n','m']
 const keyboardHeight = row1Div.offsetHeight
 const letterHeight = (keyboardHeight/10)
 const keyboardWdith = row1Div.offsetWidth
-const letterWidth = ((keyboardWdith / row1Letters.length) / 10) + 'vw'
 
 // single spot for letter styles
 const letterFontSize = '5.5vh'
+const letterBackgroundColor = 'gray'
 
 // adding letters for keyboards
 // top row
 row1Letters.forEach((letter) => {
     let letterEl = document.createElement('div')
+    letterEl.setAttribute('class', 'key')
     letterEl.style.border = 'solid'
     letterEl.style.textAlign = 'center'
     letterEl.innerHTML = letter.toUpperCase()
-    letterEl.style.width = letterWidth
+    letterEl.style.flex = '1'
     letterEl.style.fontSize = letterFontSize
+    letterEl.style.backgroundColor = letterBackgroundColor
 
     // add function
     letterEl.addEventListener('click', function(event){
@@ -80,6 +82,7 @@ row1Letters.forEach((letter) => {
     })
 
     row1Div.appendChild(letterEl)
+
 })
 
 // second row
@@ -87,9 +90,10 @@ row2Letters.forEach((letter) => {
     let letterEl = document.createElement('div')
     letterEl.style.border = 'solid'
     letterEl.style.textAlign = 'center'
+    letterEl.style.flex = '1'
     letterEl.innerHTML = letter.toUpperCase()
-    letterEl.style.width = letterWidth
     letterEl.style.fontSize = letterFontSize
+    letterEl.style.backgroundColor = letterBackgroundColor
 
     row2Div.appendChild(letterEl)
 })
@@ -100,8 +104,9 @@ row3Letters.forEach((letter) => {
     letterEl.style.border = 'solid'
     letterEl.style.textAlign = 'center'
     letterEl.innerHTML = letter.toUpperCase()
-    letterEl.style.width = letterWidth 
+    letterEl.style.flex = '1'
     letterEl.style.fontSize = letterFontSize
+    letterEl.style.backgroundColor = letterBackgroundColor
 
     row3Div.appendChild(letterEl)
 })
@@ -115,7 +120,7 @@ const answerKeysDiv = document.querySelector('.answer-keys')
 const answerHeight = answerDiv.offsetHeight
 const keyHeight = ((answerHeight / 4) / 10) + 'vh'
 const answerWidth = answerKeysDiv.offsetWidth
-const keyWidth = (answerWidth / 10)
+// const keyWidth = (answerWidth / 10)
 
 // adding letter to answer div
 let letterIndex = 0
@@ -125,7 +130,7 @@ separatedAnswer.forEach((letter) => {
     letterEl.style.textAlign = 'center'
     letterEl.setAttribute('value',letter.toUpperCase())
     letterEl.style.height = keyHeight
-    letterEl.style.fontSize = '8vh'
+    letterEl.style.fontSize = '5vh'
 
     if (letter === ' ') {
         letterEl.style.backgroundColor = 'green'
@@ -145,10 +150,6 @@ const rightLegDiv = document.querySelector('RLeg')
 // position spaceman
 
 // functions
-
-function letterClicked() {
-    console.log('clicked')
-}
 
 function checkLetter(someLetter, someBool) {
 
