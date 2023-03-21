@@ -49,8 +49,10 @@ const keyboardWdith = row1Div.offsetWidth
 
 // single spot for letter styles
 const letterFontSize = '5.5vh'
-const letterBackgroundColor = 'gray'
+const letterBackgroundColor = 'lightgray'
 const keyMargins = '0 0.5vw 0 0.5vw'
+const shadowColor = '#818181'
+const keyBoxShadow = '-1vw -1.1vh 3px '+shadowColor+' inset, 1vw 0.3vh 3px '+shadowColor+' inset'
 
 // adding letters for keyboards
 // top row
@@ -63,6 +65,7 @@ row1Letters.forEach((letter) => {
     letterEl.innerHTML = letter.toUpperCase()
     letterEl.style.fontSize = letterFontSize
     letterEl.style.backgroundColor = letterBackgroundColor
+    letterEl.style.boxShadow = keyBoxShadow
 
     letterClicked(letterEl)
     row1Div.appendChild(letterEl)
@@ -78,6 +81,7 @@ row2Letters.forEach((letter) => {
     letterEl.innerHTML = letter.toUpperCase()
     letterEl.style.fontSize = letterFontSize
     letterEl.style.backgroundColor = letterBackgroundColor
+    letterEl.style.boxShadow = keyBoxShadow
 
     letterClicked(letterEl)
     row2Div.appendChild(letterEl)
@@ -93,6 +97,7 @@ row3Letters.forEach((letter) => {
     letterEl.style.flex = '1'
     letterEl.style.fontSize = letterFontSize
     letterEl.style.backgroundColor = letterBackgroundColor
+    letterEl.style.boxShadow = keyBoxShadow
 
     letterClicked(letterEl)
     row3Div.appendChild(letterEl)
@@ -180,13 +185,15 @@ function letterClicked(keyEl) {
             if (wrongGuesses.length +1 <= spacemanEls.length && correctGuesses.length+1 <= answerReduced.length) {
                 if (answerArr.includes(guessedLetter)) {
                     // if its correct
-                    keyEl.style.backgroundColor = 'green'
+                    keyEl.style.backgroundColor = '#59f861'
+                    keyEl.style.boxShadow = '-1vw -1.1vh 3px #1aa321 inset, 1vw 0.3vh 3px #1aa321 inset'
                     correctGuesses.push(guessedLetter)
                     checkLetter(guessedLetter,true)
                 } else {
                     // if its wrong
                     wrongGuesses.push(guessedLetter)
-                    keyEl.style.backgroundColor = 'red'
+                    keyEl.style.backgroundColor = '#e43838'
+                    keyEl.style.boxShadow = '-1vw -1.1vh 3px #9d1212 inset, 1vw 0.3vh 3px #9d1212 inset'
                     checkLetter(guessedLetter,false)
                 }
                 guesses.push(guessedLetter)
