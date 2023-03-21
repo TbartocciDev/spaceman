@@ -43,8 +43,6 @@ const row2Letters = ['a','s','d','f','g','h','j','k','l']
 const row3Letters = ['z','x','c','v','b','n','m']
 
 // height and width of keyboard div and letters
-const keyboardHeight = row1Div.offsetHeight
-const letterHeight = (keyboardHeight/10)
 const keyboardWdith = row1Div.offsetWidth
 
 // single spot for letter styles
@@ -110,7 +108,6 @@ const answerKeysDiv = document.querySelector('.answer-keys')
 
 // height and width of keys 
 const answerHeight = answerDiv.offsetHeight
-// const keyHeight = ((answerHeight / 4)/12) + 'vh'
 const keyHeight = '80%'
 const answerWidth = answerKeysDiv.offsetWidth
 
@@ -118,20 +115,52 @@ const answerWidth = answerKeysDiv.offsetWidth
 let letterIndex = 0
 separatedAnswer.forEach((letter) => {
     let letterEl = document.createElement('div')
-    letterEl.style.border = 'solid'
+    let pictureEl = document.createElement('img')
+    // letterEl.style.border = 'solid'
     letterEl.style.borderColor = 'white'
     letterEl.style.color = 'white'
     letterEl.style.textAlign = 'center'
+    letterEl.style.backgroundColor
     letterEl.setAttribute('value',letter.toUpperCase())
-    // letterEl.style.marginTop = '1.5vh'
     letterEl.style.height = keyHeight
     letterEl.style.fontSize = '5vh'
+    pictureEl.src = 'https://images.squarespace-cdn.com/content/v1/6217b15f5ffe405747511988/9fe457a0-3bec-4115-a2a4-331ef43ffd24/asteroid-png.png?format=1000w'
+    pictureEl.style.height = '100%'
+    pictureEl.style.width = '100%'
+    pictureEl.style.rotate = '30deg'
+
+    let direction = 'left'
+    function changeAsteroid() {
+        if (direction === 'left'){
+            direction = 'right'
+            pictureEl.style.rotate = '210deg'
+        } else {
+            direction = 'left'
+            pictureEl.style.rotate = '30deg'
+        }
+    }
+    setInterval(changeAsteroid, 1000)
 
     if (letter === ' ') {
         letterEl.style.border = 'none'
+    } else {
+        letterEl.appendChild(pictureEl)
     }
     answerKeysDiv.appendChild(letterEl)
     letterIndex += 1
+})
+
+hintDiv.addEventListener('click',function(event) {
+    categoryDiv.style.opacity = '1'
+    let intervalID = setInterval(fade, 100)
+
+    function fade() {
+        if (categoryDiv.style.opacity > 0) {
+            categoryDiv.style.opacity = categoryDiv.style.opacity - 0.07;
+        } else {
+            clearInterval(intervalID)
+        }
+    }
 })
 
 // spaceman elements
@@ -143,6 +172,7 @@ const leftLegDiv = document.querySelector('.LLeg')
 const rightLegDiv = document.querySelector('.RLeg')
 
 const spacemanEls = document.querySelectorAll('#spaceman')
+
 // functions
 
 function checkLetter(someLetter, someBool) {
@@ -162,7 +192,7 @@ function checkLetter(someLetter, someBool) {
     } 
 
     // check for win or lose 
-    if (wrongGuesses.length >= spacemanEls.length) {
+    if (wrongGuesses.length === spacemanEls.length) {
         console.log('loser')
     } else if (correctGuesses.length === answerReduced.length){
         console.log('winner')
