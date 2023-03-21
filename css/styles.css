@@ -80,11 +80,11 @@ body {
 }
 
 .answer-keys {
-    margin-top: 4vh;
+    margin-top: 2vh;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    height: auto;
-    max-height: 80%;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    height: 80%;
 }
 
 .head {

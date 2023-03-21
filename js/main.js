@@ -1,10 +1,11 @@
 // answer string and array
-// const answerString = 'Warm toasted bagel with lox and cream'
-const answerString = 'ednm ilas'
+const answerString = 'Warm toasted bagel with lox and cream'
+// const answerString = 'ednm ilas'
 const separatedAnswer = answerString.split('')
 const answerArr = []
 
 let answerReduced = []
+let guesses = []
 let wrongGuesses = []
 let correctGuesses = []
 
@@ -104,9 +105,9 @@ const answerKeysDiv = document.querySelector('.answer-keys')
 
 // height and width of keys 
 const answerHeight = answerDiv.offsetHeight
-const keyHeight = ((answerHeight / 4) / 10) + 'vh'
+// const keyHeight = ((answerHeight / 4)/12) + 'vh'
+const keyHeight = '80%'
 const answerWidth = answerKeysDiv.offsetWidth
-// const keyWidth = (answerWidth / 10)
 
 // adding letter to answer div
 let letterIndex = 0
@@ -117,11 +118,11 @@ separatedAnswer.forEach((letter) => {
     letterEl.style.color = 'white'
     letterEl.style.textAlign = 'center'
     letterEl.setAttribute('value',letter.toUpperCase())
+    // letterEl.style.marginTop = '1.5vh'
     letterEl.style.height = keyHeight
     letterEl.style.fontSize = '5vh'
 
     if (letter === ' ') {
-        // letterEl.style.backgroundColor = 'black'
         letterEl.style.border = 'none'
     }
     answerKeysDiv.appendChild(letterEl)
@@ -136,10 +137,12 @@ const rightArmDiv = document.querySelector('.RArm')
 const leftLegDiv = document.querySelector('.LLeg')
 const rightLegDiv = document.querySelector('.RLeg')
 
+const spacemanEls = document.querySelectorAll('#spaceman')
 // functions
 
 function checkLetter(someLetter, someBool) {
 
+    // show letter in answwer keys
     if (someBool) {
         const answerKeys = answerDiv.querySelectorAll('div')
     
@@ -153,17 +156,11 @@ function checkLetter(someLetter, someBool) {
     })
     } 
 
-    const spacemanEls = document.querySelectorAll('#spaceman')
     // check for win or lose 
     if (wrongGuesses.length >= spacemanEls.length) {
         console.log('loser')
-    } else {
-        function isWinner(letter) {
-            return correctGuesses.includes(letter)
-        }
-        if (answerReduced.every(isWinner)) {
-            console.log('winner')
-        }
+    } else if (correctGuesses.length === answerReduced.length){
+        console.log('winner')
     }
 
     // show spaceman
@@ -176,20 +173,24 @@ function letterClicked(keyEl) {
     keyEl.addEventListener('click', function(event){
         const guessedLetter = event.target.innerHTML
 
-        if (answerArr.includes(guessedLetter)) {
-            keyEl.style.backgroundColor = 'green'
-            if (correctGuesses.includes(guessedLetter)) {
-                // do nothing, duplicate
-            } else if (wrongGuesses.includes(guessedLetter)){
-                // do nothing, duplicate 
-            } else {
-                correctGuesses.push(guessedLetter)
-            }
-            checkLetter(guessedLetter, true)
+        if (guesses.includes(guessedLetter)) {
+            // already guessed, do nothing
         } else {
-            keyEl.style.backgroundColor = 'red'
-            wrongGuesses.push(guessedLetter)
-            checkLetter(guessedLetter, false)
+            // has not been guessed
+            if (wrongGuesses.length +1 <= spacemanEls.length && correctGuesses.length+1 <= answerReduced.length) {
+                if (answerArr.includes(guessedLetter)) {
+                    // if its correct
+                    keyEl.style.backgroundColor = 'green'
+                    correctGuesses.push(guessedLetter)
+                    checkLetter(guessedLetter,true)
+                } else {
+                    // if its wrong
+                    wrongGuesses.push(guessedLetter)
+                    keyEl.style.backgroundColor = 'red'
+                    checkLetter(guessedLetter,false)
+                }
+                guesses.push(guessedLetter)
+            }
         }
     })
 }
