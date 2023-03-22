@@ -1,6 +1,49 @@
+// add functions to start screen buttons
+// style buttons
+let gameStyle = 'default'
+
+const stylesBoxDiv = document.querySelector('.styles-box')
+const styleButtons = stylesBoxDiv.querySelectorAll('#style-box')
+
+const selectedStyleColor = '#808080'
+const selectedBorderColor = 'black'
+const unSelectedStyleColor = '#d3d3d3'
+const unSelectedBorderColor = 'gray'
+
+styleButtons.forEach(function(button){
+    const titleDiv = button.querySelector('.style-title')
+    button.setAttribute('val', titleDiv.innerHTML)
+
+    button.addEventListener('click', function(event){
+        gameStyle = button.getAttribute('val').toLowerCase()
+
+        styleButtons.forEach(function(eachButton) {
+            if (button === eachButton) {
+                eachButton.style.backgroundColor = selectedStyleColor
+                eachButton.style.borderColor = selectedBorderColor
+            } else {
+                eachButton.style.backgroundColor = unSelectedStyleColor
+                eachButton.style.borderColor = unSelectedBorderColor
+            }
+        })
+    })
+})
+
+// play button
+const startScreen = document.querySelector('.play-screen')
+const spacemanScreen = document.querySelector('.game-screen')
+const playBtn = document.querySelector('.play-button')
+
+playBtn.addEventListener('click',function(event) {
+    startScreen.style.zIndex = '1'
+    spacemanScreen.style.zIndex = '2'
+})
+
+
+function renderGame()
 // answer string and array
-const answerString = 'Warm toasted bagel with lox and cream'
-// const answerString = 'ednm ilas'
+// const answerString = 'Warm toasted bagel with lox and cream'
+const answerString = 'ednm ilas'
 const separatedAnswer = answerString.split('')
 const answerArr = []
 
