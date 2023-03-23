@@ -52,6 +52,8 @@ const keyboardGreen = 'var(--buttonGreen)'
 const greenShadow = '-1vw -1.1vh 3px var(--buttonShadowGreen) inset, 1vw 0.3vh 3px var(--buttonShadowGreen) inset'
 const keyboardRed = 'var(--buttonRed)'
 const redShadow = '-1vw -1.1vh 3px var(--buttonShadowRed) inset, 1vw 0.3vh 3px var(--buttonShadowRed) inset'
+const keyboardYellow = 'var(--buttonYellow)'
+const keyboardShadowYellow = '-1vw -1.1vh 3px var(--buttonShadowYellow) inset, 1vw 0.3vh 3px var(--buttonShadowYellow) inset'
 
 // global variables
 let answerArr = []
@@ -237,7 +239,7 @@ function renderAnswerBoard() {
                 letterEl.appendChild(pictureEl)
             }
         } else {
-            letterEl.style.background = 'linear-gradient(to bottom, white , gray)'
+            letterEl.style.background = 'linear-gradient(to bottom, var(--buttonRed), yellow, blue)'
             letterEl.style.color = 'black'
             if (letter === ' ') {
                 letterEl.style.background = 'none'
