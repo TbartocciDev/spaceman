@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/styles.css" rel="stylesheet" type="text/css" />
+    <link href="css/styles.css" rel="stylesheet" type="text/css" id="pagestyle">
     <title>Document</title>
 </head>
 <body>
@@ -31,22 +31,22 @@
     <div class="game-screen">
         <div class="spaceman">
             <div class="head" id="spaceman">
-                <img class="head-img" src='https://images.squarespace-cdn.com/content/v1/6217b15f5ffe405747511988/6b1f773c-f052-4dd3-b195-a48f52eda5b0/face-png-42647.png?format=1000w'>
+                <img id="spaceman-img" class="head-img" src='https://images.squarespace-cdn.com/content/v1/6217b15f5ffe405747511988/6b1f773c-f052-4dd3-b195-a48f52eda5b0/face-png-42647.png?format=1000w'>
             </div>
             <div class="torso" id="spaceman">
-                <img class="torso-img" src="https://images.squarespace-cdn.com/content/v1/6217b15f5ffe405747511988/10aa50a0-085e-4bc1-9941-899b682027a9/body-png.png?format=1000w">
+                <img id="spaceman-img" class="torso-img" src="https://images.squarespace-cdn.com/content/v1/6217b15f5ffe405747511988/10aa50a0-085e-4bc1-9941-899b682027a9/body-png.png?format=1000w">
             </div>
             <div class="LArm" id="spaceman">
-                <img class="LArm-img" src="https://images.squarespace-cdn.com/content/v1/6217b15f5ffe405747511988/837ba439-4861-4de2-b7e9-9185d6bc0470/sbpng.png?format=1500w">
+                <img id="spaceman-img" class="LArm-img" src="https://images.squarespace-cdn.com/content/v1/6217b15f5ffe405747511988/837ba439-4861-4de2-b7e9-9185d6bc0470/sbpng.png?format=1500w">
             </div>
             <div class="RArm" id="spaceman">
-                <img class="RArm-img" src="">
+                <img id="spaceman-img" class="RArm-img" src="">
             </div>
             <div class="LLeg" id="spaceman">
-                <img class="LLeg-img" src="https://images.squarespace-cdn.com/content/v1/6217b15f5ffe405747511988/dfb72085-b256-42e3-b40f-d0a41cee3af7/elm-png.png?format=1500w">
+                <img id="spaceman-img" class="LLeg-img" src="https://images.squarespace-cdn.com/content/v1/6217b15f5ffe405747511988/dfb72085-b256-42e3-b40f-d0a41cee3af7/elm-png.png?format=1500w">
             </div>
             <div class="RLeg" id="spaceman">
-                <img class="RLeg-img" src="https://images.squarespace-cdn.com/content/v1/6217b15f5ffe405747511988/708c788c-d360-4536-ab72-bdb7364f2f34/c3po-png+copy.png?format=1000w">
+                <img id="spaceman-img" class="RLeg-img" src="https://images.squarespace-cdn.com/content/v1/6217b15f5ffe405747511988/708c788c-d360-4536-ab72-bdb7364f2f34/c3po-png+copy.png?format=1000w">
             </div>
         </div>
         <div class="answer">
@@ -56,52 +56,32 @@
         </div>
         <div class="keyboard">
             <div class="row1-holder">
-                <div class="row1"></div>
+                <div class="row1" id="row"></div>
             </div>
             <div class="row2-holder">
-                <div class="row2"></div>
+                <div class="row2" id="row"></div>
             </div>
             <div class="row3-holder">
-                <div class="row3"></div>
+                <div class="row3" id="row"></div>
             </div>
         </div>
     </div>
-    <!-- <div class="spaceman">
-        <div class="head" id="spaceman">
-            <img class="head-img" src='https://images.squarespace-cdn.com/content/v1/6217b15f5ffe405747511988/6b1f773c-f052-4dd3-b195-a48f52eda5b0/face-png-42647.png?format=1000w'>
-        </div>
-        <div class="torso" id="spaceman">
-            <img class="torso-img" src="https://images.squarespace-cdn.com/content/v1/6217b15f5ffe405747511988/10aa50a0-085e-4bc1-9941-899b682027a9/body-png.png?format=1000w">
-        </div>
-        <div class="LArm" id="spaceman">
-            <img class="LArm-img" src="https://images.squarespace-cdn.com/content/v1/6217b15f5ffe405747511988/837ba439-4861-4de2-b7e9-9185d6bc0470/sbpng.png?format=1500w">
-        </div>
-        <div class="RArm" id="spaceman">
-            <img class="RArm-img" src="">
-        </div>
-        <div class="LLeg" id="spaceman">
-            <img class="LLeg-img" src="https://images.squarespace-cdn.com/content/v1/6217b15f5ffe405747511988/dfb72085-b256-42e3-b40f-d0a41cee3af7/elm-png.png?format=1500w">
-        </div>
-        <div class="RLeg" id="spaceman">
-            <img class="RLeg-img" src="https://images.squarespace-cdn.com/content/v1/6217b15f5ffe405747511988/708c788c-d360-4536-ab72-bdb7364f2f34/c3po-png+copy.png?format=1000w">
+    <div class="message-screen">
+        <div class="message-box">
+            <div class="message-title">Winner!</div>
+            <div class="message-holder">
+                <div class="message">Congratulations! You were deemed worthy. Would you like to play again, or return to the main menu?</div>
+            </div>
+            <div class="buttons-div">
+                <div class="exit-button" id="message-button">
+                    <img class="exit-img" src="https://static.vecteezy.com/system/resources/thumbnails/009/344/496/small/x-transparent-free-png.png">
+                </div>
+                <div class="replay-button" id="message-button">
+                    <img class="retry-img" src="http://cdn.onlinewebfonts.com/svg/img_106832.png">
+                </div>
+            </div>
         </div>
     </div>
-    <div class="answer">
-        <div class="hint">HINT</div>
-        <div class="category">Category is: Slang</div>
-        <div class="answer-keys"></div>
-    </div>
-    <div class="keyboard">
-        <div class="row1-holder">
-            <div class="row1"></div>
-        </div>
-        <div class="row2-holder">
-            <div class="row2"></div>
-        </div>
-        <div class="row3-holder">
-            <div class="row3"></div>
-        </div>
-    </div> -->
     <script src="js/main.js"></script>
 </body>
 </html>

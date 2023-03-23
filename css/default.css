@@ -280,6 +280,7 @@ body {
 }
 
 .head {
+    background-color: rgb(144, 33, 127);
     opacity: 0;
     position: absolute;
     height: 20vh;
@@ -288,25 +289,19 @@ body {
     margin-left: 20vw;
     z-index: 3;
 }
-.head-img {
-    object-fit: fill;
-    height: 100%;
-    width: 100%;
-}
+
 .LArm {
+    background-color: blue;
     opacity: 0;
     position: absolute;
     height: 20vh;
-    width: 5.5vw;
-    margin-left: 15.5vw;
-    margin-top: 23vh;
+    width: 3.5vw;
+    margin-left: 16vw;
+    margin-top: 20vh;
 }
-.LArm-img {
-    object-fit: fill;
-    height: 100%;
-    width: 100%;
-}
+
 .torso {
+    background-color: rgb(36, 239, 67);
     opacity: 0;
     position: absolute;
     height: 25vh;
@@ -316,11 +311,7 @@ body {
     margin-top: 18.5vh;
     z-index: 2;
 }
-.torso-img {
-    object-fit: fill;
-    height: 100%;
-    width: 100%;
-}
+
 .RArm {
     background-color: red;
     opacity: 0;
@@ -331,36 +322,28 @@ body {
     margin-left: 29.5vw;
     margin-top: 20vh;
 }
-.RArm-img {
-    object-fit: fill;
-    height: 100%;
-    width: 100%;
-}
 .LLeg {
+    background-color: cyan;
     opacity: 0;
     position: absolute;
     height: 23vh;
-    width: 4.5vw;
+    width: 4vw;
 
     margin-left: 19.7vw;
     margin-top: 42.5vh;
 }
-.LLeg-img {
-    object-fit: fill;
-    height: 100%;
-    width: 100%;
-}
 .RLeg {
+    background-color: rgb(210, 255, 29);
     opacity: 0;
     position: absolute;
     height: 23vh;
-    width: 3.5vw;
+    width: 4vw;
 
-    margin-left: 24.5vw;
+    margin-left: 25vw;
     margin-top: 42.5vh;
 }
-.RLeg-img {
-    object-fit: fill;
-    height: 100%;
-    width: 100%;
+
+
+#spaceman-img {
+    opacity: 0;
 }
