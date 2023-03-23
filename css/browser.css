@@ -1,4 +1,6 @@
 :root {
+    --keyGreen: #59f861;
+    --keyGreenShadow: #;
     --buttonGreen: #008000;
     --buttonShadowGreen: #005800;
     --buttonRed: #de1111;
@@ -18,17 +20,24 @@ body {
     display: flex;
 }
 
+.background-loop {
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
 .play-screen {
-    /* opacity: 0; */
-    background-color: black;
+    background-color: transparent;
     height: 100%;
     width: 100%; 
     margin: 0;
-    z-index: 1;
+    position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    z-index: 3;
 }
 
 .title {
@@ -119,11 +128,12 @@ body {
     aspect-ratio: 1/1;
     height: 45%;
 }
+
 .message-screen {
     position: absolute;
     height: 100%;
     width: 100%;
-    background-color: black;
+    background-color: transparent;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -157,7 +167,6 @@ body {
 }
 
 .buttons-div {
-    /* background-color: black; */
     width: 100%;
     height: 25%;
     display: flex;
@@ -190,20 +199,17 @@ body {
     height: 150%;
     aspect-ratio: 1/1;
 }
-
-
 .game-screen {
     position: absolute;
-    background-color: black;
+    background-color: transparent;
     height: 100%;
     width: 100%; 
     margin: 0;
-    /* background-image: url('https://images.squarespace-cdn.com/content/v1/6217b15f5ffe405747511988/fa9ac32e-7047-4b0b-b2c7-3619d9e785a9/space-img.jpg?format=1000w'); */
-    /* background-size: cover; */
     display: grid;
     flex-direction: column;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 70% 30%;
+    z-index: 2;
 }
 
 .spaceman {

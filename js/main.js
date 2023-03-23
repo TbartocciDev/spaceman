@@ -119,19 +119,29 @@ function getStyleSheet(style) {
 // show different views
 function showGame() {
     startScreen.style.zIndex = '1'
+    startScreen.style.opacity = '0'
     spacemanScreen.style.zIndex = '3'
+    spacemanScreen.style.opacity = '1'
     messageScreen.style.zIndex = '2'
+    messageScreen.style.opacity = '0'
     console.log('show game')
 }
 function showStartScreen() {
     startScreen.style.zIndex = '3'
+    startScreen.style.opacity = '1'
     spacemanScreen.style.zIndex = '1'
+    spacemanScreen.style.opacity = '0'
     messageScreen.style.zIndex = '2'
+    messageScreen.style.opacity = '0'
+    console.log('show screen')
 }
 function showMessage() {
     startScreen.style.zIndex = '1'
+    startScreen.style.opacity = '0'
     spacemanScreen.style.zIndex = '2'
+    spacemanScreen.style.opacity = '0'
     messageScreen.style.zIndex = '3'
+    messageScreen.style.opacity = '1'
 }
 
 // -----------------------------------------
@@ -194,7 +204,7 @@ function renderAnswerBoard() {
         let letterEl = document.createElement('div')
         letterEl.style.margin = '0 0.5vw 0px 0px'
         letterEl.style.border = 'solid'
-        letterEl.style.borderColor = 'white'
+        letterEl.style.borderColor = 'black'
         letterEl.style.textAlign = 'center'
         letterEl.setAttribute('value',letter.toUpperCase())
         letterEl.style.height = keyHeight
@@ -227,9 +237,10 @@ function renderAnswerBoard() {
                 letterEl.appendChild(pictureEl)
             }
         } else {
-            letterEl.style.backgroundColor = 'white'
+            letterEl.style.background = 'linear-gradient(to bottom, white , gray)'
             letterEl.style.color = 'black'
             if (letter === ' ') {
+                letterEl.style.background = 'none'
                 letterEl.style.border = 'none'
                 letterEl.style.backgroundColor = 'transparent'
             }
@@ -344,15 +355,13 @@ function checkLetter(someLetter, someBool) {
         messageTitle.innerHTML = "Loser!"
         messageTitle.style.backgroundColor = keyboardRed
         messageLbl.innerHTML = 'Oops! You are unworthy of praise. Would you like to play again, or return to the main menu?'
-
-        showMessage()
+        setTimeout(showMessage, 2000)
     } else if (correctGuesses.length === answerReduced.length){
         console.log('winner')
         messageTitle.innerHTML = "Winner!"
         messageTitle.style.backgroundColor = keyboardGreen
         messageLbl.innerHTML = 'Congratulations! You were deemed worthy. Would you like to play again, or return to the main menu?'
-        showMessage()
-        // showStartScreen()
+        setTimeout(showMessage, 2000)
     }
 
     // show spaceman
@@ -409,3 +418,5 @@ function debugShowAnswerArea(answer) {
     renderAnswerBoard()
     showGame()
 }
+
+// debugShowAnswerArea('some string')
