@@ -4,6 +4,18 @@ const startScreen = document.querySelector('.play-screen')
 const spacemanScreen = document.querySelector('.game-screen')
 const messageScreen = document.querySelector('.message-screen')
 
+// start menu elements
+const stylesBoxDiv = document.querySelector('.styles-box')
+const styleButtons = stylesBoxDiv.querySelectorAll('#style-box')
+const styleSheet = document.querySelector('#pagestyle')
+const playBtn = document.querySelector('.play-button')
+
+// message display elements
+const exitBtn = document.querySelector('.exit-button')
+const replayBtn = document.querySelector('.replay-button')
+const messageTitle = document.querySelector('.message-title')
+const messageLbl = document.querySelector('.message')
+
 // main game elements
 const spaceManDiv = document.querySelector('.spaceman')
 const answerDiv = document.querySelector('.answer')
@@ -50,16 +62,13 @@ let correctGuesses = []
 let answerObject = {}
 let answerString = 'null'
 let separatedAnswer = []
+let gameStyle = 'default'
 
 // -----------------------------------------
 // start screen features and code
 // -----------------------------------------
 
 // build changing style components
-let gameStyle = 'default'
-
-const stylesBoxDiv = document.querySelector('.styles-box')
-const styleButtons = stylesBoxDiv.querySelectorAll('#style-box')
 
 styleButtons.forEach(function(button){
     const titleDiv = button.querySelector('.style-title')
@@ -81,13 +90,10 @@ styleButtons.forEach(function(button){
 })
 
 // add function to play button
-const playBtn = document.querySelector('.play-button')
 
 playBtn.addEventListener('click',function(event) {
     renderGame()
 })
-
-const styleSheet = document.querySelector('#pagestyle')
 
 function renderGame() {
     getStyleSheet(gameStyle)
@@ -122,17 +128,24 @@ function showStartScreen() {
     spacemanScreen.style.zIndex = '1'
     messageScreen.style.zIndex = '2'
 }
-function showMessage(message) {
+function showMessage() {
     startScreen.style.zIndex = '1'
     spacemanScreen.style.zIndex = '2'
     messageScreen.style.zIndex = '3'
 }
 
 // -----------------------------------------
-// start screen features and code
+// messaage view features and code
 // -----------------------------------------
 
-const exitBtn = document.querySelector('exit-button')
+exitBtn.addEventListener('click', function(event){
+    showStartScreen()
+})
+
+replayBtn.addEventListener('click', function(event) {
+    showGame()
+    renderGame()
+})
 // -----------------------------------------
 // game features and code
 // -----------------------------------------
@@ -179,17 +192,17 @@ function renderAnswerBoard() {
     let letterIndex = 0
     separatedAnswer.forEach((letter) => {
         let letterEl = document.createElement('div')
+        letterEl.style.margin = '0 0.5vw 0px 0px'
         letterEl.style.border = 'solid'
         letterEl.style.borderColor = 'white'
-        letterEl.style.color = 'white'
         letterEl.style.textAlign = 'center'
-        letterEl.style.backgroundColor
         letterEl.setAttribute('value',letter.toUpperCase())
         letterEl.style.height = keyHeight
         letterEl.style.fontSize = '5vh'
 
         if (gameStyle === 'browser') {
             letterEl.style.border = 'none'
+            letterEl.style.color = 'white'
             let pictureEl = document.createElement('img')
             pictureEl.src = 'https://images.squarespace-cdn.com/content/v1/6217b15f5ffe405747511988/9fe457a0-3bec-4115-a2a4-331ef43ffd24/asteroid-png.png?format=1000w'
             pictureEl.style.height = '100%'
@@ -214,8 +227,11 @@ function renderAnswerBoard() {
                 letterEl.appendChild(pictureEl)
             }
         } else {
+            letterEl.style.backgroundColor = 'white'
+            letterEl.style.color = 'black'
             if (letter === ' ') {
                 letterEl.style.border = 'none'
+                letterEl.style.backgroundColor = 'transparent'
             }
         }
         answerKeysDiv.appendChild(letterEl)
@@ -325,9 +341,16 @@ function checkLetter(someLetter, someBool) {
     // check for win or lose 
     if (wrongGuesses.length === spacemanEls.length) {
         console.log('loser')
+        messageTitle.innerHTML = "Loser!"
+        messageTitle.style.backgroundColor = keyboardRed
+        messageLbl.innerHTML = 'Oops! You are unworthy of praise. Would you like to play again, or return to the main menu?'
+
         showMessage()
     } else if (correctGuesses.length === answerReduced.length){
         console.log('winner')
+        messageTitle.innerHTML = "Winner!"
+        messageTitle.style.backgroundColor = keyboardGreen
+        messageLbl.innerHTML = 'Congratulations! You were deemed worthy. Would you like to play again, or return to the main menu?'
         showMessage()
         // showStartScreen()
     }
@@ -386,5 +409,3 @@ function debugShowAnswerArea(answer) {
     renderAnswerBoard()
     showGame()
 }
-
-// showMessage('Giving up early?')

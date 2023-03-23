@@ -160,7 +160,6 @@ body {
 }
 
 .buttons-div {
-    /* background-color: black; */
     width: 100%;
     height: 25%;
     display: flex;
@@ -195,7 +194,7 @@ body {
 }
 .game-screen {
     position: absolute;
-    background-color: black;
+    background-color: rgb(88, 27, 27);
     height: 100%;
     width: 100%; 
     margin: 0;
@@ -289,6 +288,11 @@ body {
     margin-left: 20vw;
     z-index: 3;
 }
+.head-img {
+    object-fit: fill;
+    height: 100%;
+    width: 100%;
+}
 
 .LArm {
     background-color: blue;
@@ -298,6 +302,11 @@ body {
     width: 3.5vw;
     margin-left: 16vw;
     margin-top: 20vh;
+}
+.LArm-img {
+    object-fit: fill;
+    height: 100%;
+    width: 100%;
 }
 
 .torso {
@@ -311,7 +320,11 @@ body {
     margin-top: 18.5vh;
     z-index: 2;
 }
-
+.torso-img {
+    object-fit: fill;
+    height: 100%;
+    width: 100%;
+}
 .RArm {
     background-color: red;
     opacity: 0;
@@ -321,6 +334,11 @@ body {
 
     margin-left: 29.5vw;
     margin-top: 20vh;
+} 
+.RArm-img {
+    object-fit: fill;
+    height: 100%;
+    width: 100%;
 }
 .LLeg {
     background-color: cyan;
@@ -332,6 +350,11 @@ body {
     margin-left: 19.7vw;
     margin-top: 42.5vh;
 }
+.LLeg-img {
+    object-fit: fill;
+    height: 100%;
+    width: 100%;
+}
 .RLeg {
     background-color: rgb(210, 255, 29);
     opacity: 0;
@@ -341,6 +364,11 @@ body {
 
     margin-left: 25vw;
     margin-top: 42.5vh;
+}
+.RLeg-img {
+    object-fit: fill;
+    height: 100%;
+    width: 100%;
 }
 
 
