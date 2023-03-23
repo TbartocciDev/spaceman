@@ -1,10 +1,12 @@
 :root {
-    --keyGreen: #59f861;
-    --keyGreenShadow: #;
     --buttonGreen: #008000;
     --buttonShadowGreen: #005800;
     --buttonRed: #de1111;
     --buttonShadowRed: #a01111;
+    --hoverGreen:  #02b702;
+    --hoverShadowGreen: #008000 ;
+    --hoverRed: #f84040;
+    --hoverShadowRed: #de1111;
 }
 
 html {
@@ -103,7 +105,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 50%;
-    width: 50%;
+    width: 70%;
 }
 
 .play-button {
@@ -115,6 +117,19 @@ body {
     box-shadow: -5px 5px var(--buttonShadowGreen), 5px 5px var(--buttonShadowGreen) ;
     height: 70%;
     width: 80%;
+}
+
+.play-button:hover {
+    background-color: var(--hoverGreen);
+    box-shadow: -5px 5px var(--hoverShadowGreen), 5px 5px var(--hoverShadowGreen) ;
+}
+.replay-button:hover {
+    background-color: var(--hoverGreen);
+    box-shadow: -1vw -1.1vh 3px var(--hoverShadowGreen) inset, 1vw 0.3vh 3px var(--hoverShadowGreen) inset;
+}
+.exit-button:hover {
+    background-color: var(--hoverRed);
+    box-shadow: -1vw -1.1vh 3px var(--hoverShadowRed) inset, 1vw 0.3vh 3px var(--hoverShadowRed) inset;
 }
 
 .play-title {
