@@ -1,3 +1,6 @@
+import {
+    allAnswers
+} from './answersArr.js'
 // query selectors
 // all different views
 const startScreen = document.querySelector('.play-screen')
@@ -63,6 +66,7 @@ let wrongGuesses = []
 let correctGuesses = []
 let answerObject = {}
 let answerString = 'null'
+let categoryString ='null'
 let separatedAnswer = []
 let gameStyle = 'default'
 
@@ -163,20 +167,8 @@ replayBtn.addEventListener('click', function(event) {
 // -----------------------------------------
 
 // all phrases to be guessed
-const answers = [
-    {
-        string: 'Testing Testing',
-        category: 'Funny Phrase'
-    },
-    {
-        string: 'Second Phrase',
-        category: 'Some Phrase'
-    },
-    {
-        string: 'Jungle Gym',
-        category: 'Object'
-    },
-]
+console.log(allAnswers)
+const answers = allAnswers
 
 // reset variables
 function resetVariables() {
@@ -187,6 +179,7 @@ function resetVariables() {
     correctGuesses = []
     answerObject = {}
     answerString = 'null'
+    categoryString = 'null'
     separatedAnswer = []
 }
 
@@ -195,6 +188,7 @@ function getRandomPhrase() {
     const randomIndex = Math.floor(Math.random() * answers.length)
     answerObject = answers[randomIndex]
     answerString = answerObject.string
+    categoryString = answerObject.category
     console.log('random phrase: '+answerString)
 }
 
@@ -211,6 +205,7 @@ function renderAnswerBoard() {
         letterEl.setAttribute('value',letter.toUpperCase())
         letterEl.style.height = keyHeight
         letterEl.style.fontSize = '5vh'
+        categoryDiv.innerHTML = categoryString
 
         if (gameStyle === 'browser') {
             letterEl.style.border = 'none'
