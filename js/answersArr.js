@@ -96,7 +96,7 @@ export const allAnswers = [
         category: 'Boy george'
     },
     {
-        string: 'Gli Azzuri',
+        string: 'Gli Azzurri',
         category: 'Forza Italia!'
     },
 

@@ -119,7 +119,6 @@ function renderGame() {
 function getStyleSheet(style) {
     const styleSheetRef = 'css/'+style+'.css'
     styleSheet.setAttribute('href' , styleSheetRef)
-    console.log('style: ' + style )
 }
 
 // show different views
@@ -130,7 +129,6 @@ function showGame() {
     spacemanScreen.style.opacity = '1'
     messageScreen.style.zIndex = '2'
     messageScreen.style.opacity = '0'
-    console.log('show game')
 }
 function showStartScreen() {
     startScreen.style.zIndex = '3'
@@ -139,7 +137,6 @@ function showStartScreen() {
     spacemanScreen.style.opacity = '0'
     messageScreen.style.zIndex = '2'
     messageScreen.style.opacity = '0'
-    console.log('show screen')
 }
 function showMessage() {
     startScreen.style.zIndex = '1'
@@ -167,7 +164,6 @@ replayBtn.addEventListener('click', function(event) {
 // -----------------------------------------
 
 // all phrases to be guessed
-console.log(allAnswers)
 const answers = allAnswers
 
 // reset variables
@@ -189,7 +185,6 @@ function getRandomPhrase() {
     answerObject = answers[randomIndex]
     answerString = answerObject.string
     categoryString = answerObject.category
-    console.log('random phrase: '+answerString)
 }
 
 
@@ -245,7 +240,6 @@ function renderAnswerBoard() {
         answerKeysDiv.appendChild(letterEl)
         letterIndex += 1
     })
-    console.log('appended: '+letterIndex)
 }
 
 function removeChildrenFromParent(parent) {
@@ -300,20 +294,17 @@ function renderKeyboards() {
         })
     keyboardNum += 1
     })
-    console.log('keyboards rendered')
 }  
 
 // hide spaceman
 function hideSpaceman() {
     for(let i=0;i<spacemanEls.length;i++) {
-        console.log('element')
         spacemanEls[i].style.opacity = 0
     }
 }
 
 // hint animation
 function addHintFade() {
-    console.log('hint affect added')
     hintDiv.addEventListener('click',function(event) {
         categoryDiv.style.opacity = '1'
         let intervalID = setInterval(fade, 100)
@@ -348,13 +339,11 @@ function checkLetter(someLetter, someBool) {
 
     // check for win or lose 
     if (wrongGuesses.length === spacemanEls.length) {
-        console.log('loser')
         messageTitle.innerHTML = "Loser!"
         messageTitle.style.backgroundColor = keyboardRed
         messageLbl.innerHTML = 'Oops! You are unworthy of praise. Would you like to play again, or return to the main menu?'
         setTimeout(showMessage, 2000)
     } else if (correctGuesses.length === answerReduced.length){
-        console.log('winner')
         messageTitle.innerHTML = "Winner!"
         messageTitle.style.backgroundColor = keyboardGreen
         messageLbl.innerHTML = 'Congratulations! You were deemed worthy. Would you like to play again, or return to the main menu?'
@@ -369,7 +358,6 @@ function checkLetter(someLetter, someBool) {
 
 function letterClicked(keyEl) {
     keyEl.addEventListener('click', function(event){
-        console.log('pressed')
         const guessedLetter = event.target.innerHTML
 
         if (guesses.includes(guessedLetter)) {
