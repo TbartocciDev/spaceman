@@ -159,6 +159,7 @@ replayBtn.addEventListener('click', function(event) {
     showGame()
     renderGame()
 })
+
 // -----------------------------------------
 // game features and code
 // -----------------------------------------
@@ -186,7 +187,6 @@ function getRandomPhrase() {
     answerString = answerObject.string
     categoryString = answerObject.category
 }
-
 
 function renderAnswerBoard() {
     removeChildrenFromParent(answerKeysDiv)
@@ -323,18 +323,16 @@ function addHintFade() {
 
 function checkLetter(someLetter, someBool) {
 
-    // show letter in answwer keys
     if (someBool) {
         const answerKeys = answerDiv.querySelectorAll('div')
     
         answerKeys.forEach((answerKey)=> {
+            const answerKeyVal = answerKey.getAttribute('value')
 
-        const answerKeyVal = answerKey.getAttribute('value')
-
-        if (answerKeyVal === someLetter) {
-            answerKey.innerHTML = someLetter
-        }
-    })
+            if (answerKeyVal === someLetter) {
+                answerKey.innerHTML = someLetter
+            }
+        })
     } 
 
     // check for win or lose 
@@ -403,5 +401,3 @@ function debugShowAnswerArea(answer) {
     renderAnswerBoard()
     showGame()
 }
-
-// debugShowAnswerArea('some string')
