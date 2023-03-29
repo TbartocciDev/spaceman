@@ -43,7 +43,7 @@ const unSelectedStyleColor = '#d3d3d3'
 const unSelectedBorderColor = 'gray'
 
 // keyboard keys
-const letterFontSize = '5.5vh'
+const letterFontSize = '5.5vmin'
 const letterBackgroundColor = 'lightgray'
 const keyMargins = '0 0.5vw 0 0.5vw'
 const shadowColor = '#818181'
@@ -111,6 +111,7 @@ function renderGame() {
     renderAnswerBoard()
     renderKeyboards()
     addHintFade()
+    hintDiv.style.opacity = '1'
 }
 
 // functions
@@ -199,7 +200,7 @@ function renderAnswerBoard() {
         letterEl.style.textAlign = 'center'
         letterEl.setAttribute('value',letter.toUpperCase())
         letterEl.style.height = keyHeight
-        letterEl.style.fontSize = '5vh'
+        letterEl.style.fontSize = '6vmin'
         categoryDiv.innerHTML = categoryString
 
         if (gameStyle === 'browser') {
@@ -385,7 +386,7 @@ function letterClicked(keyEl) {
 // debug functions
 
 function debugShowSpaceman() {
-    wrongGuesses = spacemanEls
+    wrongGuesses.length = spacemanEls.length - 1
     checkLetter('a',true)
     showGame()
 }

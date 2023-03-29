@@ -44,9 +44,9 @@ body {
 
 .title {
     background-color: white;
-    width: 70%;
+    width: 50vmax;
     height: 15%;
-    font-size: 13.5vh;
+    font-size: 11vmin;
     border-radius: 4vh 4vh 0 0;
     text-align: center;
     justify-content: center;
@@ -55,7 +55,7 @@ body {
 .start-box {
     background-color: white;
     height: 70%;
-    width: 70%;
+    width: 50vmax;
     display: flex;
     border-radius: 0 0 4vh 4vh;
     flex-direction: column;
@@ -63,7 +63,7 @@ body {
 }
 .select {
     margin-top: 4vh;
-    font-size: 4vh;
+    font-size: 4vmin;
 }
 
 .styles-box {
@@ -83,7 +83,7 @@ body {
     justify-content: center;
 }
 .style-title {
-    font-size: 4vh;
+    font-size: 3vmin;
 }
 
 .default-style {
@@ -113,12 +113,11 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-radius: 6vh;
+    border-radius: 5vmin;
     box-shadow: -5px 5px var(--buttonShadowGreen), 5px 5px var(--buttonShadowGreen) ;
     height: 70%;
     width: 80%;
 }
-
 .play-button:hover {
     background-color: var(--hoverGreen);
     box-shadow: -5px 5px var(--hoverShadowGreen), 5px 5px var(--hoverShadowGreen) ;
@@ -134,7 +133,8 @@ body {
 
 .play-title {
     text-align: center;
-    font-size: 15vh;
+    margin-top: 2vh;
+    font-size: 10vmin;
     width: 100%;
     height: 55%;
 }
@@ -144,9 +144,33 @@ body {
     height: 45%;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .message-screen {
     position: absolute;
-    opacity: 0;
     height: 100%;
     width: 100%;
     background-color: transparent;
@@ -154,12 +178,11 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    z-index: 2;
 }
 .message-box {
     background-color: white;
     height: 50%;
-    width: 50%;
+    width: 45vmax;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -170,14 +193,14 @@ body {
     height: 25%;
     width: 100%;
     text-align: center;
-    font-size: 10vh;
+    font-size: 11vmin;
     border-radius: 4vh 4vh 0 0;
 }
 .message-holder {
-    height: 50%;
+    height: 55%;
     width: 90%;
     display: flex;
-    font-size: 5.5vh;
+    font-size: 4.5vmin;
     text-align: center;
     align-items: center;
     justify-content: center;
@@ -185,7 +208,7 @@ body {
 
 .buttons-div {
     width: 100%;
-    height: 25%;
+    height: 20%;
     display: flex;
     justify-content: center;
     border-radius: 4vh;
@@ -218,7 +241,6 @@ body {
 }
 .game-screen {
     position: absolute;
-    opacity: 0;
     background-color: transparent;
     height: 100%;
     width: 100%; 
@@ -227,8 +249,6 @@ body {
     flex-direction: column;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 70% 30%;
-    z-index: 2;
-    z-index: 1;
 }
 
 .spaceman {
@@ -249,9 +269,10 @@ body {
     flex-direction: column;
     grid-template-rows: 1fr 1fr 1fr;
     margin: 1vh 0 1vh 0;
+    
 }
 
-.row1-holder {
+#row-holder {
     margin: 0 30px 1vh 30px; 
     display: flex;
     justify-content: center;
@@ -263,20 +284,10 @@ body {
     width: 100%;
     height: 100%;
 }
-.row2-holder {
-    margin: 0 30px 1vh 30px; 
-    display: flex;
-    justify-content: center;
-}
 .row2 {
     display: flex;
     width: 90%;
     height: 100%;
-}
-.row3-holder {
-    margin: 0 30px 1vh 30px; 
-    display: flex;
-    justify-content: center;
 }
 .row3 {
     display: flex;
@@ -285,14 +296,15 @@ body {
 }
 
 .hint {
-    font-size: 6vh;
+    font-size: 6vmin;
     text-decoration-line: underline;
     color: white;
+    opacity: 0;
 }
 
 .category {
     opacity: 0;
-    font-size: 3.5vh;
+    font-size: 3.5vmin;
     color: white;
 }
 
@@ -305,6 +317,7 @@ body {
 }
 
 .head {
+    background-color: rgb(144, 33, 127);
     opacity: 0;
     position: absolute;
     height: 20vh;
@@ -318,20 +331,24 @@ body {
     height: 100%;
     width: 100%;
 }
+
 .LArm {
+    background-color: blue;
     opacity: 0;
     position: absolute;
     height: 20vh;
-    width: 5.5vw;
-    margin-left: 15.5vw;
-    margin-top: 23vh;
+    width: 3.5vw;
+    margin-left: 16vw;
+    margin-top: 20vh;
 }
 .LArm-img {
     object-fit: fill;
     height: 100%;
     width: 100%;
 }
+
 .torso {
+    background-color: rgb(36, 239, 67);
     opacity: 0;
     position: absolute;
     height: 25vh;
@@ -355,17 +372,18 @@ body {
 
     margin-left: 29.5vw;
     margin-top: 20vh;
-}
+} 
 .RArm-img {
     object-fit: fill;
     height: 100%;
     width: 100%;
 }
 .LLeg {
+    background-color: cyan;
     opacity: 0;
     position: absolute;
     height: 23vh;
-    width: 4.5vw;
+    width: 4vw;
 
     margin-left: 19.7vw;
     margin-top: 42.5vh;
@@ -376,16 +394,128 @@ body {
     width: 100%;
 }
 .RLeg {
+    background-color: rgb(210, 255, 29);
     opacity: 0;
     position: absolute;
     height: 23vh;
-    width: 3.5vw;
+    width: 4vw;
 
-    margin-left: 24.5vw;
+    margin-left: 25vw;
     margin-top: 42.5vh;
 }
 .RLeg-img {
     object-fit: fill;
     height: 100%;
     width: 100%;
+}
+
+
+#spaceman-img {
+    opacity: 0;
+}
+
+@media (orientation: portrait) {
+    /* start screen */
+    .title{
+        font-size: 11vh;
+    }
+    .style-title{
+        font-size: 3vh;
+    }
+    .select{
+        font-size: 4vh;
+    }
+    .play-title{
+        margin-top: 2vh;
+        font-size: 10vh;
+    }
+    .play-button{
+        border-radius: 5vh;
+    }
+    /* message screen */
+    .message-holder{
+        font-size: 4vh;
+        
+    }
+    .message-title{
+        font-size: 11vh;
+    }
+    /* spaceman screen  */
+    .game-screen{
+        position: absolute;
+        background-color: transparent;
+        height: 100%;
+        width: 100%; 
+        margin: 0;
+        display: grid;
+        flex-direction: row;
+        grid-template-rows: 50% 25% 25%;
+        grid-template-columns: 1fr;
+
+    }
+    .spaceman{ 
+        grid-column: span 1;
+    }
+    .answer{
+        margin: 0 1vw 0 1vw;
+        grid-column: span 1;
+    }
+    .hint{
+        font-size: 3.5vh;
+        margin: 0;
+    }
+    .category{
+        margin: 0;
+        font-size: 2.5vh;
+    }
+    .answer-keys {
+        margin-top: 0.5vh;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        height: 100%;
+    }
+    .keyboard {
+        grid-column: span 1;
+        margin: 1vh 0px 0 0px;
+    }
+    #row-holder{
+        margin: 0 0px 1vh 0px; 
+    }
+    .head{
+        height: 14vh;
+        width: 18vw;
+        margin-left: 41vw;
+    }
+    .torso{
+        height: 16vh;
+        width: 22vw;
+        margin-left: 39vw;
+        margin-top: 13vh;
+    }
+    .LArm{
+        height: 14vh;
+        width: 6vw;
+        margin-left: 33vw;
+        margin-top: 14vh;
+    }
+    .RArm{
+        height: 14vh;
+        width: 6vw;
+        margin-left: 61vw;
+        margin-top: 14vh;
+    }
+    .LLeg{
+        height: 14vh;
+        width: 8vw;
+        margin-left: 40vw;
+        margin-top: 29vh;
+    }
+    .RLeg{
+        height: 14vh;
+        width: 8vw;
+        margin-left: 52vw;
+        margin-top: 29vh;
+    }
+    
 }
